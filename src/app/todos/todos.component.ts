@@ -12,27 +12,32 @@ export class TodosComponent implements Todo {
   id!: number;
   title!: string;
   completed!: boolean;
-  tasks = document.querySelector('#tasks')
-  
-  constructor(){}
+
+
+  constructor() { }
 
   arrayTodo: any[] = []
 
   addTodo(title: string) {
-    this.arrayTodo.push(title)
-    this.completed = false
-   }
+    if (title == '') {
+      setTimeout(() => {
+        document.querySelector('#campovuoto')?.innerHTML, ('Non sono presenti record')
+      }, 1000)
+    }
+    else {
+      this.arrayTodo.push(title)
+      this.completed = false
+    }
+  }
+
+
+  getTodo(title: string) {
+    let elementiSalvati = localStorage.getItem('lista')
+    let db = elementiSalvati == null ? [] : JSON.parse(elementiSalvati);
+    db.push(title)
+    localStorage.setItem('lista', JSON.stringify(db))
+  }
   
 
-  getTodo(title: string){
-
-    this.completed = true
-    console.log(this.completed)
-  }
-
-
-
-  ngOnInit(): void {
-  }
-
 }
+

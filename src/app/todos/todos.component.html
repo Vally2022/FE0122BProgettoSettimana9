@@ -1,0 +1,19 @@
+<div class="container justify-content-center">
+    <form>
+     <div class="form-group">
+     <h1 class="text-center text-primary">Todos</h1>
+      <div class="input-group mb-3">
+        <input type="text" #tasks class="form-control" placeholder="scrivi qui" aria-label="scrivi qui" aria-describedby="button-addon2" ngModel="todo.completed">
+        <span id="button" class="btn btn-primary" (click)="addTodo(tasks.value)">+</span>
+      </div>
+      <p id="campoVuoto"></p>
+        <div class="data">
+          <ul class="list-instyled">
+           <li *ngFor="let tasks of arrayTodo">
+             {{tasks}}
+             <span class="btn btn-primary" (click)="getTodo(tasks)">+</span>
+            </li>
+          </ul>
+          
+      </div>
+

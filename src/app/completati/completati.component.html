@@ -1,0 +1,13 @@
+<div class="container justify-content-center">
+    <form>
+        <div class="form-group">
+            <h1 class="text-center text-primary">Todos</h1>
+            <div class="data">
+                <ul class="list-instyled">
+                    <li *ngIf="this.completed == true">
+                       {{arrayTodo}}
+                    </li>
+
+                </ul>
+            </div>
+        </div>
